@@ -1,0 +1,30 @@
+>.\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
+
+>.\bin\windows\kafka-server-start.bat .\config\server.properties
+
+# Criar topicos
+.\bin\windows\kafka-topics.bat --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic LOJA_NOVO_PEDIDO
+
+# DESCREVER TOPICOS
+.\bin\windows\kafka-topics.bat --describe --bootstrap-server localhost:9092
+
+# ALTERAR PARTIÇÕES DE TOPIC EXISTENTE
+.\bin\windows\kafka-topics.bat --alter --zookeeper localhost:2181 --topic ECOMMERCE_NEW_ORDER --partitions 3
+
+# LISTAR TOPICOS FOI CRIADO
+.\bin\windows\kafka-topics.bat --list --bootstrap-server localhost:9092
+
+# DELETAR TOPICOS
+.\bin\windows\kafka-topics.bat --bootstrap-server localhost:9092 --topic ECOMMERCE_NEW_LIST --delete
+
+# ACESSAR PRODUCER PARA TOPICO
+.\bin\windows\kafka-console-producer.bat --broker-list localhost:9092 --topic LOJA_NOVO_PEDIDO
+
+# ACESSAR CONSUMER PARA TOPICO A PARTIR DO MOMENTO
+.\bin\windows\kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic LOJA_NOVO_PEDIDO
+
+# ACESSAR CONSUMER PARA TOPICO DESDE O COMEÇO
+.\bin\windows\kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic LOJA_NOVO_PEDIDO --from-beginning
+
+# DESCRIÇÃO DOS GRUPOS DE CONSUMO
+.\bin\windows\kafka-consumer-groups.bat --bootstrap-server localhost:9092 --all-groups --describe
