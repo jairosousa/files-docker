@@ -23,6 +23,11 @@ docker logs <nome container>
 docker run --name dev-mysql -e MYSQL_ROOT_PASSWORD=root -d -p 3306:3306 mysql
 ```
 
+## Mapeamento Volumes
+```
+docker run -d --name dev-mysql -e MYSQL_ROOT_PASSWORD=root -v /f/workspace-docker/volumes/mysql-db/data:/var/lib/mysql -p 3306:3306 mysql
+```
+
 ## Via docker-compose
 
 ```
