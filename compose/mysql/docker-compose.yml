@@ -13,4 +13,8 @@ services:
             MYSQL_ROOT_PASSWORD: root
         ports: 
             - 3306:3306
+        volumes:
+            - "/f/workspace-docker/volumes/mysql-db/data:/var/lib/mysql"
+        
+                   
              
