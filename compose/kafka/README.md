@@ -66,6 +66,34 @@ kafka-topics.sh --list --bootstrap-server localhost:9092
 
 ![diretorio kafka no container](img05.png)
 
+
+## Produtor de mensagem
+ - Enviar mensagem para o topico
+
+```bash
+kafka-console-producer.sh --broker-list localhost:9092 --topic LOJA_NOVO_PEDIDO
+
+>pedido0, 550
+>pedido1, 330
+>pedido2, 67213
+```
+
+## Consumer menssagens
+
+```
+kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic LOJA_NOVO_PEDIDO
+```
+Nesse caso não mostrou mensagem devido pegar o momento 
+
+### Mostrar as mensagem desde o começo
+
+```
+kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic LOJA_NOVO_PEDIDO --from-beginning
+pedido0, 550
+pedido1, 330
+pedido2, 67213
+```
+
 # Referências
 
 [github/shabbirdwd53](https://gist.github.com/shabbirdwd53/d3b531d61379068da26d16487e37af34)
