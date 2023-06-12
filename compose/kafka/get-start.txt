@@ -8,6 +8,9 @@
 # DESCREVER TOPICOS
 .\bin\windows\kafka-topics.bat --describe --bootstrap-server localhost:9092
 
+# CONSUMIR TOPICO
+.\bin\windows\kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic ECOMMERCE_NEW_ORDER --from-beginning
+
 # ALTERAR PARTIÇÕES DE TOPIC EXISTENTE
 .\bin\windows\kafka-topics.bat --alter --zookeeper localhost:2181 --topic ECOMMERCE_NEW_ORDER --partitions 3
 
